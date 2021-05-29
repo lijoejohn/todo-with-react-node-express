@@ -1,0 +1,29 @@
+{
+	"plugins": ["react"],
+	"parser": "babel-eslint",
+	"extends": ["eslint:recommended", "plugin:react/recommended",  "prettier"],
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"no-console": ["error", { "allow": ["warn", "error"] }],
+		"no-debugger": "warn",
+		"no-unused-vars": "error",
+		"one-var": ["error", "never"],
+		"no-case-declarations": "off",
+		"prefer-const": [
+			"error",
+			{
+				"destructuring": "any",
+				"ignoreReadBeforeAssign": false
+			}
+		],
+		"no-var": "error",
+		"react/prop-types": "off",
+		"react/display-name": "off",
+		"react/no-find-dom-node": "error",
+		"curly": "error"
+	},
+	"env": {
+        "browser": true,
+        "node": true
+    }
+}

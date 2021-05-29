@@ -1,0 +1,38 @@
+.root-div {
+	padding-top: 10%;
+}
+.container-div {
+	position: relative;
+	margin: 0;
+	margin: auto;
+	width: 50% !important;
+	padding: 10px;
+	z-index: 2;
+	height: 350px;
+	max-height: 500px;
+	background: #ffffff 0% 0% no-repeat padding-box;
+	box-shadow: 0px 3px 6px #00000029;
+	border-radius: 12px;
+	max-width: 386px !important;
+	h2 {
+		color: #537178;
+	}
+	.form-error-span {
+		color: red;
+		font-size: 12px;
+		font-weight: 500;
+	}
+	.form-label {
+		color: #537178;
+		font-size: 12px;
+		font-weight: 500;
+	}
+	.toaster-rwap {
+		position: fixed;
+		min-height: 200px;
+		top: 0;
+		right: 0;
+		margin-top: 25px;
+		margin-right: 10px;
+	}
+}
