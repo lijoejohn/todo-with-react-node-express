@@ -13,13 +13,14 @@ const Dashboard = ({ history }) => {
 	const { data } = useSelector((state) => state.Dashboard);
 
 	const [showAdd, setShowAdd] = useState(false);
+	const [searchTeram, setSearchTeram] = useState("");
 
 	return (
 		<Container className="dashboard-wrap">
 			<Header {...{ history }} />
 			<CardBlock />
-			<TaskHead {...{ setShowAdd }} />
-			<TaskTable {...{ setShowAdd }} />
+			<TaskHead {...{ setShowAdd, searchTeram, setSearchTeram }} />
+			<TaskTable {...{ setShowAdd, searchTeram }} />
 			<AddTask {...{ showAdd, setShowAdd }} />
 			{data?.totalTasks === 0 && !showAdd && (
 				<Modal show={!data.totalTasks && !showAdd} animation={false}>

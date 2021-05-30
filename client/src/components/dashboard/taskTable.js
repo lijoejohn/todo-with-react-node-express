@@ -5,18 +5,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { showLoader, getTaskList, updateTask, deleteTask } from "../../store/actions";
 import deleteIcon from "../../assets/trash-solid.svg";
 
-const TaskTable = () => {
+const TaskTable = ({ searchTeram }) => {
 	const dispatch = useDispatch();
-	const { taskList, reload } = useSelector((state) => state.Dashboard);
+	const { reload, taskList } = useSelector((state) => state.Dashboard);
 
 	const [activeRecord, setActiveRecord] = useState({ show: false });
+	const [list, setList] = useState([]);
 
+	// Initial page load
 	useEffect(() => {
 		dispatch(showLoader(true));
 		dispatch(
 			getTaskList(
-				() => {
+				(result) => {
 					dispatch(showLoader(false));
+					setList(result);
 				},
 				() => {
 					dispatch(showLoader(false));
@@ -24,6 +27,18 @@ const TaskTable = () => {
 			)
 		);
 	}, [reload]);
+
+	//Search logic
+	useEffect(() => {
+		if (searchTeram !== "") {
+			const updatedList = taskList.filter((item) => {
+				return item.name.includes(searchTeram);
+			});
+			setList(updatedList);
+		} else {
+			setList(taskList);
+		}
+	}, [searchTeram]);
 
 	const onStatusChange = (data) => {
 		const postData = { ...data, completed: !data.completed };
@@ -42,7 +57,7 @@ const TaskTable = () => {
 		<>
 			<Row className="table-list">
 				<Row className="table-row">
-					{taskList?.map(({ name, completed, id }) => (
+					{list?.map(({ name, completed, id }) => (
 						<Col key={id} className="box table-row-item" lg={12} md={12} sm={12} xs={12}>
 							<div
 								onClick={() => onStatusChange({ completed, id })}
