@@ -18,6 +18,8 @@ Docker way - from the document root folder run the following command, Once the d
 
 ### `docker-compose up --build`
 
+Or Option 2
+
 Alternative way - move to api folder and run the following command to make the api up, api will be avilable in http://localhost:5000
 
 ### `yarn install`
