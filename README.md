@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App and express framework].
 
 ## Demo
 
-Demo in Google Cloud (Firebase) https://lokalise-task-lj.web.app/
+Demo in Google Cloud (Firebase) https://lijo-todo.web.app
 
 ## Sample Login
 
